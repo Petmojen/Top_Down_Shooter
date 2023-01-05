@@ -73,6 +73,7 @@ public class SilencedPistol:MonoBehaviour {
 
             gunPools.casingPool[i].SetActive(true);
             gunPools.casingPool[i].transform.position = casingOutput.position; //Set casing start pos
+            gunPools.casingPool[i].GetComponent<CasingBehaviour>().startSize = 1.25f;
             gunPools.casingPool[i].GetComponent<Rigidbody2D>().velocity = casingEjectionSpeed * (Quaternion.Euler(0, 0, Random.Range(-20, 20)) * transform.right); //Set casing velocity and random direction
             break;
         }
@@ -100,7 +101,7 @@ public class SilencedPistol:MonoBehaviour {
                 if(currentZombie.currentState == ZombieBehaviour.ZombieState.Attacking)
                     continue;
 
-                currentZombie.CheckNoiceToPlayer();
+                currentZombie.NoiceCheckToPlayer();
             }
         }
 

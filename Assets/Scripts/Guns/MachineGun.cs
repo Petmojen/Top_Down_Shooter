@@ -82,6 +82,7 @@ public class MachineGun:MonoBehaviour {
 
             gunPools.casingPool[i].SetActive(true);
             gunPools.casingPool[i].transform.position = casingOutput.position;
+            gunPools.casingPool[i].GetComponent<CasingBehaviour>().startSize = 2f;
             gunPools.casingPool[i].GetComponent<Rigidbody2D>().velocity = casingEjectionSpeed * (Quaternion.Euler(0, 0, Random.Range(-20, 20)) * transform.right);
             break;
         }
@@ -108,7 +109,7 @@ public class MachineGun:MonoBehaviour {
                 if(currentZombie.currentState == ZombieBehaviour.ZombieState.Attacking)
                     continue;
 
-                currentZombie.CheckNoiceToPlayer();
+                currentZombie.NoiceCheckToPlayer();
             }
         }
 

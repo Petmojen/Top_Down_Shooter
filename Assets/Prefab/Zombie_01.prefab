@@ -174,8 +174,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d4d21df15933c843a4ef8c4af584399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
   movementSpeed: 7
   idelSpeed: 3
+  fieldOfView: 60
+  rayCastStep: 7.5
+  fieldOfViewRange: 7
 --- !u!114 &5717263973382313916
 MonoBehaviour:
   m_ObjectHideFlags: 0
