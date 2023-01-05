@@ -1,0 +1,8 @@
+Artillery Piece - fire upon zombie infested city
+
+Gun pushback
+Add weapon mods
+Bullet mods
+Zomboids boids
+Loot zombois
+Backshield - slows movement
