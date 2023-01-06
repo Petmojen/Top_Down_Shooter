@@ -8449,13 +8449,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6629784148749962157, guid: 92f976bb42636c84895f16734e414bcc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6629784148749962163, guid: 92f976bb42636c84895f16734e414bcc, type: 3}
       propertyPath: m_Name
       value: Zombie_01
       objectReference: {fileID: 0}
     - target: {fileID: 6629784148749962163, guid: 92f976bb42636c84895f16734e414bcc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6945753145886472372, guid: 92f976bb42636c84895f16734e414bcc, type: 3}
       propertyPath: m_Enabled

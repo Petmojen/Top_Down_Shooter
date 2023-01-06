@@ -39,6 +39,8 @@ public class BulletBehaviour:MonoBehaviour {
             GameObject zombieTagged = hit.collider.gameObject;
 
             zombieTagged.GetComponent<ZombieBehaviour>().AddPushBack(rgbd2D.velocity.normalized * pushBackStrength);
+            
+            //If zombie idle, instakill with pistol
             zombieTagged.GetComponent<ZombieHealth>().TakeDamage(Random.Range(minDamage, maxDamage));
             gameObject.SetActive(false);
         }

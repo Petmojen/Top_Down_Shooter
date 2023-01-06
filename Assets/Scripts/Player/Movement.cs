@@ -6,6 +6,8 @@ public class Movement:MonoBehaviour {
     
     [SerializeField] float movementSpeed, runningSpeed;
 
+    [HideInInspector] public bool cantMove;
+
     float currentMovementSpeed;
     Rigidbody2D rgbd2D;
     Vector2 position;
@@ -15,6 +17,11 @@ public class Movement:MonoBehaviour {
     }
 
     void Update() {
+        if(cantMove) {
+            rgbd2D.velocity = Vector3.zero;
+            return;
+        }
+
         GetInput();
         UpdatePosition();
     }

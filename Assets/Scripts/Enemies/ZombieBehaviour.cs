@@ -17,7 +17,6 @@ public class ZombieBehaviour:MonoBehaviour {
     [Header("FOV")]
     [SerializeField] float fieldOfView;
     [SerializeField] float rayCastStep, fieldOfViewRange;
-    //float currentSpeed;
 
     Rigidbody2D rgbd2D;
     GameObject player;
@@ -113,7 +112,7 @@ public class ZombieBehaviour:MonoBehaviour {
         rgbd2D.AddForce(pushBack, ForceMode2D.Impulse);
         StopCoroutine(RandomMovement());
         currentState = ZombieState.Attacking;
-        Invoke(nameof(NoPushBack), 0.1f);
+        Invoke(nameof(NoPushBack), 0.2f);
     }
 
     void NoPushBack() {

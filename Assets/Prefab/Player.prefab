@@ -644,6 +644,7 @@ GameObject:
   - component: {fileID: 7376609288748418558}
   - component: {fileID: 4513544661092024057}
   - component: {fileID: 423917217134626017}
+  - component: {fileID: 6221449049757411764}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -782,6 +783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crosshair: {fileID: 6067783892645594258}
+  canLookAround: 0
 --- !u!114 &7376609288748418558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,6 +798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 6
   runningSpeed: 10
+  cantMove: 0
 --- !u!114 &4513544661092024057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,6 +836,21 @@ MonoBehaviour:
   bulletPool: []
   casingPool: []
   flashPool: []
+--- !u!114 &6221449049757411764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7376609288748418547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec5b6cf2c0657a49ba476f01cd0f122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockBackArea: 0.7
+  knockBackForce: 30
+  knockBackCoolDown: 0.5
 --- !u!1 &7376609289378456706
 GameObject:
   m_ObjectHideFlags: 0

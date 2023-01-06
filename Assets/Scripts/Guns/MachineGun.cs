@@ -60,18 +60,10 @@ public class MachineGun:MonoBehaviour {
                 continue;
 
             gunPools.bulletPool[i].SetActive(true);
-
-            //Sets bullet start pos
-            gunPools.bulletPool[i].transform.position = gunPools.bulletPool[i].GetComponent<BulletBehaviour>().lastPos = barrelTip.position;
-
-            //Sets min/max damage of bullet
-            gunPools.bulletPool[i].GetComponent<BulletBehaviour>().BulletDamage(bulletMinDamage, bulletMaxDamage);
-
-            //Sets bullet velocity and random direction
-            gunPools.bulletPool[i].GetComponent<Rigidbody2D>().velocity = bulletSpeed * (Quaternion.Euler(0, 0, Random.Range(-5, 5)) * transform.up);
-
-            //Rotates bullet towards its velocity
-            gunPools.bulletPool[i].transform.up = gunPools.bulletPool[i].GetComponent<Rigidbody2D>().velocity;
+            gunPools.bulletPool[i].transform.position = gunPools.bulletPool[i].GetComponent<BulletBehaviour>().lastPos = barrelTip.position; //Sets bullet start pos
+            gunPools.bulletPool[i].GetComponent<BulletBehaviour>().BulletDamage(bulletMinDamage, bulletMaxDamage); //Sets min/max damage of bullet
+            gunPools.bulletPool[i].GetComponent<Rigidbody2D>().velocity = bulletSpeed * (Quaternion.Euler(0, 0, Random.Range(-5, 5)) * transform.up); //Sets bullet velocity and random direction
+            gunPools.bulletPool[i].transform.up = gunPools.bulletPool[i].GetComponent<Rigidbody2D>().velocity; //Rotates bullet towards its velocity
             break;
         }
 
@@ -81,9 +73,9 @@ public class MachineGun:MonoBehaviour {
                 continue;
 
             gunPools.casingPool[i].SetActive(true);
-            gunPools.casingPool[i].transform.position = casingOutput.position;
-            gunPools.casingPool[i].GetComponent<CasingBehaviour>().startSize = 2f;
-            gunPools.casingPool[i].GetComponent<Rigidbody2D>().velocity = casingEjectionSpeed * (Quaternion.Euler(0, 0, Random.Range(-20, 20)) * transform.right);
+            gunPools.casingPool[i].transform.position = casingOutput.position; //Set casing start pos
+            gunPools.casingPool[i].GetComponent<CasingBehaviour>().startSize = 2f; //Set start size of casing
+            gunPools.casingPool[i].GetComponent<Rigidbody2D>().velocity = casingEjectionSpeed * (Quaternion.Euler(0, 0, Random.Range(-20, 20)) * transform.right); //Set casing velocity and random direction
             break;
         }
 
@@ -93,15 +85,15 @@ public class MachineGun:MonoBehaviour {
                 continue;
 
             gunPools.flashPool[i].SetActive(true);
-            gunPools.flashPool[i].transform.position = barrelTip.position;
-            gunPools.flashPool[i].transform.up = barrelTip.up;
-            gunPools.flashPool[i].GetComponent<ParticleSystem>().Play();
+            gunPools.flashPool[i].transform.position = barrelTip.position; //Set muzzle flash start pos
+            gunPools.flashPool[i].transform.up = barrelTip.up; //Set muzzle flash rotation
+            gunPools.flashPool[i].GetComponent<ParticleSystem>().Play(); //Play muzzleflash
             break;
         }
 
-        Collider2D[] zombies = Physics2D.OverlapCircleAll(transform.position, soundDistanceDetection);
+        Collider2D[] zombies = Physics2D.OverlapCircleAll(transform.position, soundDistanceDetection); //Add all zombies within collider to array
         if(zombies.Length > 0) {
-            for(int i = 0; i < zombies.Length; i += 2) {
+            for(int i = 0; i < zombies.Length; i += 2) { //Zombies has two colliders, increasing with two so not to double check
                 if(!zombies[i].CompareTag("Zombie"))
                     continue;
 

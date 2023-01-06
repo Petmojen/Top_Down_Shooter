@@ -73,7 +73,7 @@ public class SilencedPistol:MonoBehaviour {
 
             gunPools.casingPool[i].SetActive(true);
             gunPools.casingPool[i].transform.position = casingOutput.position; //Set casing start pos
-            gunPools.casingPool[i].GetComponent<CasingBehaviour>().startSize = 1.25f;
+            gunPools.casingPool[i].GetComponent<CasingBehaviour>().startSize = 1.25f; //Set start size of casing
             gunPools.casingPool[i].GetComponent<Rigidbody2D>().velocity = casingEjectionSpeed * (Quaternion.Euler(0, 0, Random.Range(-20, 20)) * transform.right); //Set casing velocity and random direction
             break;
         }
@@ -93,7 +93,7 @@ public class SilencedPistol:MonoBehaviour {
         //Zombie sound checker
         Collider2D[] zombies = Physics2D.OverlapCircleAll(transform.position, soundDistanceDetection); //Add all zombies within collider to array
         if(zombies.Length > 0) {
-            for(int i = 0; i < zombies.Length; i += 2) { //Zombies has two colliders, increasing every two is enough
+            for(int i = 0; i < zombies.Length; i += 2) { //Zombies has two colliders, increasing with two so not to double check
                 if(!zombies[i].CompareTag("Zombie"))
                     continue;
 
